@@ -1,0 +1,45 @@
+{
+  "Interface básica": {
+    "prefix": "ifc",
+    "body": [
+      "export interface ${1:Name} {",
+      "  ${2:field}: ${3:string};",
+      "}"
+    ],
+    "description": "Crea una interfaz básica"
+  },
+  "Tipo Result genérico": {
+    "prefix": "result",
+    "body": [
+      "type Ok<T> = {",
+      "  ok: true;",
+      "  value: T;",
+      "};",
+      "",
+      "type Err<E> = {",
+      "  ok: false;",
+      "  error: E;",
+      "};",
+      "",
+      "export type Result<T, E = Error> = Ok<T> | Err<E>;",
+      "",
+      "export const ok = <T>(value: T): Ok<T> => ({ ok: true, value });",
+      "export const err = <E>(error: E): Err<E> => ({ ok: false, error });"
+    ],
+    "description": "Tipo Result genérico con helpers ok/err"
+  },
+  "ApiResponse genérico": {
+    "prefix": "apires",
+    "body": [
+      "export interface ApiResponse<T> {",
+      "  success: boolean;",
+      "  data?: T;",
+      "  error?: {",
+      "    code: string;",
+      "    message: string;",
+      "  };",
+      "}"
+    ],
+    "description": "Interface para respuestas de API"
+  }
+}
