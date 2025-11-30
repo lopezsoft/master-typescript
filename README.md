@@ -24,11 +24,17 @@ Este repositorio contiene recursos complementarios para el libro
 
 ### 1. Ejemplos por lección (`/ejemplos`)
 
-- `leccion-01-por-que-typescript/`
-- `leccion-02-configuracion-entorno/`
-- `leccion-03-tipos-y-alias/`
-- `leccion-06-genericos/`
-- `leccion-09-asincronia/`
+| Lección | Carpeta | Contenido |
+|---------|---------|-----------|
+| 01 | `leccion-01-por-que-typescript/` | Por qué TypeScript: problemas de JS vs solución tipada |
+| 02 | `leccion-02-configuracion-entorno/` | Configuración del entorno y tsconfig |
+| 03 | `leccion-03-tipos-y-alias/` | Tipos primitivos, alias y modelado de datos |
+| 04 | `leccion-04-funciones/` | Funciones tipadas, overloads, callbacks y HOF |
+| 05 | `leccion-05-clases/` | Clases, herencia, interfaces y clases abstractas |
+| 06 | `leccion-06-genericos/` | Genéricos y el patrón Result |
+| 07 | `leccion-07-utility-types/` | Utility Types: Partial, Pick, Record, keyof, mapped types |
+| 08 | `leccion-08-type-guards/` | Type Guards, narrowing y uniones discriminadas |
+| 09 | `leccion-09-asincronia/` | Asincronía: Promises, async/await, Promise.all |
 
 ### 2. Retos con enunciado y solución (`/retos`)
 
