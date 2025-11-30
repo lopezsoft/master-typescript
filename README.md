@@ -1,3 +1,16 @@
+# { MASTER DE TYPESCRIPT } - Código Fuente
+
+Este repositorio contiene los ejemplos prácticos y ejercicios del libro **{ MASTER DE TYPESCRIPT }: Guía de Arquitectura y Patrones Enterprise**.
+
+📘 **¿Aún no tienes el libro?**
+Aprende a diseñar sistemas escalables, no solo a escribir código.
+👉 [Consigue la Guía Completa Aquí](https://lewislopez.io)
+
+---
+## Estructura del Proyecto
+...
+
+
 # Recursos – MASTER DE TYPESCRIPT · Volumen 1
 
 Este repositorio contiene recursos complementarios para el libro  
