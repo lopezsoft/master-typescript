@@ -1,0 +1,89 @@
+version: '3.8'
+
+# ===============================================
+# DOCKER COMPOSE - DESARROLLO LOCAL
+# Starter production-ready NestJS + TypeScript
+# ===============================================
+
+services:
+  # -----------------------------------------------
+  # API NestJS
+  # -----------------------------------------------
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    container_name: master-ts-api
+    restart: unless-stopped
+    ports:
+      - "${PORT:-3000}:3000"
+    environment:
+      NODE_ENV: ${NODE_ENV:-development}
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_USERNAME: ${DB_USERNAME:-postgres}
+      DB_PASSWORD: ${DB_PASSWORD:-postgres}
+      DB_DATABASE: ${DB_DATABASE:-master_typescript_db}
+      JWT_SECRET: ${JWT_SECRET:-your-super-secret-key}
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - master-ts-network
+    volumes:
+      - ./logs:/app/logs
+
+  # -----------------------------------------------
+  # PostgreSQL Database
+  # -----------------------------------------------
+  postgres:
+    image: postgres:16-alpine
+    container_name: master-ts-postgres
+    restart: unless-stopped
+    ports:
+      - "${DB_PORT:-5432}:5432"
+    environment:
+      POSTGRES_USER: ${DB_USERNAME:-postgres}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-postgres}
+      POSTGRES_DB: ${DB_DATABASE:-master_typescript_db}
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - master-ts-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # -----------------------------------------------
+  # pgAdmin (Opcional - Gestión de BD)
+  # -----------------------------------------------
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: master-ts-pgadmin
+    restart: unless-stopped
+    ports:
+      - "5050:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@mastertyescript.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    networks:
+      - master-ts-network
+    depends_on:
+      - postgres
+
+# -----------------------------------------------
+# NETWORKS
+# -----------------------------------------------
+networks:
+  master-ts-network:
+    driver: bridge
+
+# -----------------------------------------------
+# VOLUMES
+# -----------------------------------------------
+volumes:
+  postgres-data:
+    driver: local
