@@ -78,6 +78,19 @@ npm run start:dev
 
 ---
 
+## 💬 Comunidad y Soporte
+
+¿Tienes dudas sobre algún concepto? ¿Quieres compartir tu solución a los retos?
+
+👉 **[Únete a las Discussions](https://github.com/lopezsoft/master-typescript/discussions)**
+
+- Haz preguntas específicas por capítulo
+- Comparte tus proyectos TypeScript
+- Conecta con otros lectores
+- Recibe feedback directo
+
+---
+
 ## Autor
 
 Creado por **Lewis Oswaldo López Gómez**  
